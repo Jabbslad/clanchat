@@ -1,0 +1,12 @@
+{
+  "name": "clanchat",
+  "subdomain": "clanchat",
+  "scripts": {
+    "start": "server.js"
+  },
+  "version": "0.0.0-3",
+  "dependencies": {
+    "express": "2.5.x",
+    "socket.io": "0.8.x"
+  }
+}
