@@ -1,13 +1,40 @@
+<!DOCTYPE html>
 <html>
 	<head>
+		<link rel="stylesheet" type="text/css" href="/css/style.css" />
+		
 		<script src="/js/jquery-1.7.1.js"></script>
+		<script src="/js/underscore.js"></script>
+		<script src="/js/backbone.js"></script>
 		<script src="/socket.io/socket.io.js"></script>
 		<script src="/js/clanchat.js"></script>
+		
+		<script type='text/template' id='message-list-template'>
+			<ul class="messages"></ul>
+		</script>
+		
+		<script type='text/template' id='message-template'>
+			<% var date = new Date(sent); %>
+			<% function zeroPad(num) {return (num > 9) ? num : '0' + num}; %>
+			<div class='sent'><%= zeroPad(date.getHours()) + ':' + zeroPad(date.getMinutes()) %></div>
+			<div class='text'><%= text %></div>
+		</script>
+		
+		<script>
+			jQuery(function() {
+				window.messages.fetch();
+			});
+		</script>
 	</head>
 	<body>
-		<ul id='chat'></ul>
-		<input id="msg" type="text"></input>
-		<input id="submit" type="button" value="send"></input>
-		<div id="typing"></div>
+		<div id='container'>
+			<div id='messagearea'>
+			</div>
+			<div id='controls'>
+				<input id="msg" type="text"></input>
+				<input id="submit" type="button" value="send"></input>
+				<div id="typing"></div>
+			</div>
+		</div>
 	</body>
 </html>

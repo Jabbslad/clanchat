@@ -1,0 +1,57 @@
+ul.messages {
+	display: inline;
+	clear: left;
+}
+
+li.message {
+	display: block;
+	clear: left;
+	border-bottom: 1px solid #eeeded;
+	padding-top: 2px;
+}
+
+div.sent {
+	width: 50px;
+	display: block;
+	float: left;
+	font-weight: bold;
+	color: #0001c6;
+	font-size: xx-small;
+}
+
+#messagearea {
+	height: 300px;
+	overflow: scroll;
+	padding: 5px;
+	border: 1px solid #c8c6c6;
+	font: small "Lucida Grande", Lucida, Verdana, sans-serif;
+}
+
+div.text {
+	display: block;
+	float: left;
+	width: 70%;
+}
+
+#container {
+	width: 400px;
+	;
+}
+
+#controls {
+	margin-top: 10px;
+	width: 100%;
+	text-align: right;
+}
+
+#submit {
+	float: right;
+	display: block;
+}
+
+#msg {
+	width: 340px;
+	float: left;
+	display: block;
+	border: 1px solid #c8c6c6;
+}

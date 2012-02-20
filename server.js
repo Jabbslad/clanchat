@@ -7,6 +7,10 @@ server.listen(8000);
 
 msgs = [];
 
+server.get('/msgs', function(req, res) {
+	res.send(msgs);
+});
+
 server.get('/*', function(req, res) {
 	var filename = (req.url == '/' ? '/index.html' : req.url);
 	var stream = fs.createReadStream(__dirname + filename, {
@@ -23,7 +27,6 @@ server.get('/*', function(req, res) {
 });
 
 io.sockets.on('connection', function(socket) {
-	socket.emit('connect', msgs);
 	
 	socket.on('typing', function(msg) {
 		var text;
@@ -37,9 +40,9 @@ io.sockets.on('connection', function(socket) {
 	});
 	
 	
-	socket.on('msg', function(msg, cb) {
+	socket.on('msg', function(msg, callback) {
 		msgs.push(msg);
-		cb();
+		callback();
 		socket.broadcast.emit('msg', msg);
 	});
 });
